@@ -15,21 +15,33 @@
   <body>
     <div class="weather-app">
       <header>
-        <form>
-          <input type="search" placeholder="Enter a City..." required />
-          <input type="submit" value="search" />
+        <form class="search-form">
+          <input
+            type="search"
+            placeholder="Enter a City..."
+            required
+            class="search-form-input"
+          />
+          <input type="submit" value="search" class="search-form-button" />
         </form>
       </header>
       <main>
-        <div>
-          <h1>Paris</h1>
-          <p>
-            Monday 6:40 AM, Mostly Cloudy
-            <br />
-            Precipitation: 7% Humidity: 89% Wind: 6 mph
-          </p>
+        <div class="weatherapp-data">
+          <div>
+            <h1 class="weather-app-city">Paris</h1>
+            <p class="weather-app-details">
+              Monday 6:40 AM, Mostly Cloudy
+              <br />
+              Precipitation: <strong> 7% </strong> Humidity:
+              <strong> 89% </strong> Wind: <strong> 6 mph </strong>
+            </p>
+          </div>
+          <div>
+            <div class="weather-app-icon">☁️</div>
+            <div class="weather-app-temp">12</div>
+            <div class="weather-app-value">°C</div>
+          </div>
         </div>
-        ☁️ 12 °C
       </main>
       <footer>
         Coded by
