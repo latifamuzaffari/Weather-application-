@@ -1,14 +1,9 @@
 body {
   background-color: #f5f1fe;
-  // <uniquifier>: Use a unique and descriptive class name
-  // <weight>: Use a value from 200 to 1000
-
-  .nunito-<uniquifier > {
-    font-family: "Nunito", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal;
-  }
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
 }
 a {
   color: #f5f1fe;
@@ -79,8 +74,6 @@ main {
 }
 .weather-app-details strong {
   color: #f65282;
-}
-.weather-app-tempreture {
 }
 footer {
   border-top: 1px solid #f5f1fe;
