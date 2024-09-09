@@ -1,0 +1,20 @@
+body {
+  background-color: #f5f1fe;
+  // <uniquifier>: Use a unique and descriptive class name
+  // <weight>: Use a value from 200 to 1000
+
+  .nunito-<uniquifier > {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+  }
+}
+.weather-app {
+  background: white;
+  max-width: 600px;
+  margin: 45px auto;
+  box-shadow: 0 38px 50px rgba(65, 59, 100, 0.88);
+  border-radius: 16px;
+  padding: 30px;
+}
