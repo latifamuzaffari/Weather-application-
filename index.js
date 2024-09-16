@@ -1,26 +1,54 @@
-function refreshWeather(response) {
-  let temperatureElement = document.querySelector("#temperature");
-  let temperature = response.data.temperature.current;
-  let cityElement = document.querySelector("#city");
+document.addEventListener("DOMContentLoaded", () => {
+  const cityInput = document.getElementById("city-input");
+  const searchBtn = document.getElementById("search-btn");
+  const cityName = document.getElementById("city-name");
+  const temperature = document.getElementById("temperature");
+  const weatherIcon = document.getElementById("weather-icon");
+  const timeDay = document.getElementById("time-day");
+  const humidity = document.getElementById("humidity");
+  const wind = document.getElementById("wind");
 
-  cityElement.innerHTML = response.data.city;
-  temperatureElement.innerHTML = Math.round(temp);
-}
+  const apiKey = "t2c95710o0f6f81ca031b16df4bbe950";
+  const apiUrl = "https://api.shecodes.io/weather/v1/current?query=";
 
-function searchCity(city) {
-  let apiKey = "b2a5adcct04b33178913oc335f405433";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-  axios.get(apiUrl).then(refreshWeather);
-}
+  function fetchWeather(city) {
+    fetch(`${apiUrl}${city}&key=${apiKey}`)
+      .then((response) => response.json())
+      .then((data) => {
+        updateWeatherUI(data);
+      })
+      .catch((error) => console.log("Error:", error));
+  }
 
-function handleSearchSubmit(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#search-form-input");
+  function formatDateTime(timestamp) {
+    const date = new Date(timestamp * 1000);
+    const options = {
+      weekday: "long",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    };
+    return date.toLocaleDateString(undefined, options);
+  }
 
-  searchCity(searchInput.value);
-}
+  function updateWeatherUI(data) {
+    cityName.textContent = data.city;
+    temperature.textContent = `${Math.round(data.temperature.current)}°C`;
+    weatherIcon.src = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${data.condition.icon}.png`;
 
-let searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", handleSearchSubmit);
+    const formattedTime = formatDateTime(data.time);
+    timeDay.textContent = `${formattedTime}, ${data.condition.description}`;
 
-searchCity("Paris");
+    humidity.textContent = `Humidity: ${data.temperature.humidity}%`;
+    wind.textContent = `Wind: ${data.wind.speed} km/h`;
+  }
+
+  searchBtn.addEventListener("click", () => {
+    const city = cityInput.value;
+    if (city) {
+      fetchWeather(city);
+    }
+  });
+
+  fetchWeather("Paris");
+});
