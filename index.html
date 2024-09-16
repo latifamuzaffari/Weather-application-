@@ -3,62 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-      rel="stylesheet"
-    />
     <title>Weather App</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="weather-app">
-      <header>
-        <form class="search-form">
-          <input
-            type="search"
-            placeholder="Enter a City..."
-            required
-            class="search-form-input"
-          />
-          <input type="submit" value="search" class="search-form-button" />
-        </form>
-      </header>
-      <main>
-        <div class="weatherapp-data">
-          <div>
-            <h1 class="weather-app-city">Paris</h1>
-            <p class="weather-app-details">
-              Monday 6:40 AM, Mostly Cloudy
-              <br />
-              Precipitation: <strong> 7% </strong> Humidity:
-              <strong> 89% </strong> Wind: <strong> 6 mph </strong>
-            </p>
+    <div class="container">
+      <div class="search-container">
+        <input type="text" id="city-input" placeholder="Enter a city.." />
+        <button id="search-btn">Search</button>
+      </div>
+      <div class="weather-card">
+        <h1 id="city-name">City</h1>
+        <p id="time-day">Day, Time, Weather Description</p>
+        <div class="weather-info">
+          <div class="temp-icon">
+            <img id="weather-icon" src="" alt="Weather Icon" />
+            <h2 id="temperature">--°C</h2>
           </div>
-          <div class="weather-app-container">
-            <div class="weather-app-icon">☁️</div>
-            <div class="weather-app-temp">12</div>
-            <div class="weather-app-unit">°C</div>
-          </div>
+          <p id="humidity">Humidity: --%</p>
+          <p id="wind">Wind: -- km/h</p>
         </div>
-      </main>
-      <footer>
-        Coded by
-        <a href="https://www.linkedin.com/in/latifa-muzaffari/" target="_blank">
-          Latifa Muzaffari</a
-        >,hosted on
-        <a
-          href="https://github.com/latifamuzaffari/Weather-application-/tree/main"
-          target="_blank"
-        >
-          GitHub</a
-        >
-        and wesite hosted on
-        <a href="https://latifa-weatherapp.netlify.app/" target="_blank">
-          Netlify</a
-        >
-      </footer>
+      </div>
+      <div class="footer">
+        <p>
+          This project was coded by
+          <a href="https://www.linkedin.com/in/latifa-muzaffari/"
+            >Latifa Muzaffari</a
+          >, is
+          <a href="https://github.com/latifamuzaffari/Weather-application-"
+            >open-sourced on GitHub</a
+          >
+          and
+          <a href="https://latifa-weatherapp.netlify.app/">hosted on Netlify</a>
+        </p>
+      </div>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>
